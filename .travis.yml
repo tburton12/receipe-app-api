@@ -8,7 +8,7 @@ services:
 before_install:
   - echo $DOCKERHUB_TOKEN | docker login --username $DOCKERHUB_USER --password-stdin
 
-before_script: pip instal docker-compose
+before_script: pip install docker-compose
 
 script:
   - docker-compose run app sh -c "python manage.py test && flake8"
