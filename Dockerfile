@@ -6,7 +6,14 @@ ENV PYTHONDONTWRITEBYTECODE=1
 
 WORKDIR /app
 COPY requirements.txt /app/
+
+#RUN apt-get install -y \
+#  postgresql-client
+#RUN apt-get update --no-cache --virtual .tmp-build-deps \
+#    gcc libpq-dev linux-headers postgresql-dev
 RUN pip install -r requirements.txt
+#RUN rm .tmp-build-deps
+
 COPY . /app/
 
 #COPY ./requirements.txt /requirements.txt
